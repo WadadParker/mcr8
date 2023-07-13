@@ -42,9 +42,24 @@ export const MeetupProvider=({children})=>
     }
     const [state,dispatch]=useReducer(Reducer,initialState);
 
+    const sortMeetups=()=>
+    {
+        const {meetups,sort,search}=state;
+
+        const searchedMeetups=meetups.filter(({title,eventTags})=>title.toLowerCase().includes(search.toLowerCase()))
+        // || eventTags.map(item=>item.toLowerCase().includes(search.toLowerCase()))
+        if(sort==="both")
+        {
+            return searchedMeetups;
+        }
+        else {
+            return searchedMeetups.filter(({eventType})=>eventType===sort)
+        }
+    }
+
 
     return (
-        <MeetupContext.Provider value={{state,dispatch}}>
+        <MeetupContext.Provider value={{state,dispatch,sortMeetups}}>
             {children}
         </MeetupContext.Provider>
     )

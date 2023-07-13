@@ -1,0 +1,24 @@
+.card-container {
+    display: grid;
+    grid-template-areas: "img";
+    place-items: start;
+    cursor: pointer;
+}
+.img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    grid-area: img;
+    border-radius: 0.5rem;
+}
+.event{
+    grid-area: img;
+    z-index: 5;
+    place-self: start;
+    margin: 0.5rem;
+    padding: 0 0.5rem;
+    background-color: white;
+    border: 1px solid ghostwhite;
+    border-radius: 0.5rem;
+
+}
