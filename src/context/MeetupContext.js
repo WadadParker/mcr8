@@ -22,6 +22,12 @@ export const MeetupProvider=({children})=>
              
             case "CLEAR_INPUT":
                 return {...state,input:clearInput,showModal:false};    
+              
+            case "SEARCH":
+                return {...state,search:payload};
+               
+            case "SORT":
+                return {...state,sort:payload};    
 
             default:
                 return state;    
@@ -31,6 +37,8 @@ export const MeetupProvider=({children})=>
         input:{name:"",email:""},
         showModal:false,
         meetups:data.meetups,
+        search:"",
+        sort:"both",
     }
     const [state,dispatch]=useReducer(Reducer,initialState);
 
