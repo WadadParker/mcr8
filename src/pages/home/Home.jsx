@@ -1,6 +1,6 @@
 import styles from "./home.module.css";
 import logo from "../../assets/meetup.svg";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { MeetupContext } from "../../context/MeetupContext";
 import {MeetupCard} from "../../components/meetupCard/MeetupCard";
@@ -8,7 +8,9 @@ import {MeetupCard} from "../../components/meetupCard/MeetupCard";
 export const Home=()=>
 {
     const {state,dispatch,sortMeetups}=useContext(MeetupContext);
-    const {meetups,search,sort}=state;
+    const {meetups,search,sort,rsvp}=state;
+
+    useEffect(()=>dispatch({type:"RSVP"}),[rsvp])
     return (
         <div>
             <nav className={styles.nav}>

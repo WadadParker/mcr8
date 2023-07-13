@@ -28,6 +28,9 @@ export const MeetupProvider=({children})=>
                
             case "SORT":
                 return {...state,sort:payload};    
+               
+            case "RSVP":
+                return {...state,rsvp:false};   
 
             default:
                 return state;    
