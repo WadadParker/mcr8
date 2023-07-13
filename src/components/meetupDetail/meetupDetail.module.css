@@ -1,0 +1,45 @@
+.details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.main-details-container {
+    display: grid;
+    justify-items: start;
+    width: 20vw;
+    justify-content: center;
+}
+.article {
+    display: grid;
+    gap: 1rem;
+    background-color: white;
+}
+
+.tag {
+    padding: 0.5rem 1rem;
+    background-color: rgb(242, 59, 89);
+    color: white;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+}
+.speaker-container  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+.speakers {
+    display: grid;
+    justify-items: center;
+    border: 1px solid rgb(197, 196, 196);
+    border-radius: 0.5rem;
+    padding: 1rem 0.2rem;
+    margin: 0 1rem
+}
+.speakers img {
+    border-radius: 50%;
+}

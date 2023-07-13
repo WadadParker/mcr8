@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 
 import { MeetupContext } from "../../context/MeetupContext";
+import { MeetupDetail } from "../../components/meetupDetail/MeetupDetail";
 
 export const EventDetail=()=>
 {
@@ -20,8 +21,7 @@ export const EventDetail=()=>
                 <img src={logo} width={100} height={100} />
                 <input type="search" placeholder="seach by title and tags" value={search} onChange={(e)=>dispatch({type:"SEARCH",payload:e.target.value})}/>
             </nav>
-            This is event details page
-            <strong>{foundMeetup?.title}</strong>
+            <MeetupDetail item={foundMeetup} />
         </div>
     )
 }
