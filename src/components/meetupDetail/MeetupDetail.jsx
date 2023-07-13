@@ -12,6 +12,16 @@ export const MeetupDetail=({item})=>
 
     const currentDate= new Date();
 
+    const checkDate=()=>
+    {
+        const eventStartTime = new Date(item?.eventStartTime);
+        if(currentDate>eventStartTime)
+        {
+            return false
+        }
+        else {return true}
+    }
+    const dateFlag=checkDate();
 
     return ( <>
                 {showModal && <Modal />}
@@ -90,7 +100,7 @@ export const MeetupDetail=({item})=>
                         ))}
                     </ul>
                 </footer>
-                <button className={styles.tag} disabled={rsvp} onClick={()=>dispatch({type:"TOGGLE_MODAL",payload:true})}>{rsvp?"Already RSVPed":"RSVP"}</button>
+               { dateFlag && <button className={styles.tag} disabled={rsvp} onClick={()=>dispatch({type:"TOGGLE_MODAL",payload:true})}>{rsvp?"Already RSVPed":"RSVP"}</button>}
             </main>
         </div>
         </>
