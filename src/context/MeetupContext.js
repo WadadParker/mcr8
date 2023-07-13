@@ -18,7 +18,7 @@ export const MeetupProvider=({children})=>
                 return {...state,showModal:payload};    
                
             case "ADD":
-                return {...state,list:[...state.list,state.input],input:clearInput,showModal:false};  
+                return {...state,rsvp:true,input:clearInput,showModal:false};  
              
             case "CLEAR_INPUT":
                 return {...state,input:clearInput,showModal:false};    
@@ -39,6 +39,7 @@ export const MeetupProvider=({children})=>
         meetups:data.meetups,
         search:"",
         sort:"both",
+        rsvp:false,
     }
     const [state,dispatch]=useReducer(Reducer,initialState);
 

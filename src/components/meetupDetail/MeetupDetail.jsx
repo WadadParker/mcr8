@@ -3,15 +3,18 @@ import styles from "./meetupDetail.module.css";
 import { useContext } from "react";
 
 import { MeetupContext } from "../../context/MeetupContext";
+import {Modal} from "../../components/modal/Modal";
 
 export const MeetupDetail=({item})=>
 {
     const {state,dispatch}=useContext(MeetupContext);
-    const {meetups,search}=state;
+    const {meetups,search,showModal,rsvp}=state;
 
     const currentDate= new Date();
 
-    return (
+
+    return ( <>
+                {showModal && <Modal />}
         <div className={styles[`details-container`]}>
             <header className={styles[`main-details-container`]}>
                 <h1>{item?.title}</h1>
@@ -87,8 +90,9 @@ export const MeetupDetail=({item})=>
                         ))}
                     </ul>
                 </footer>
-                <button className={styles.tag} disabled={new Date()}>RSVP</button>
+                <button className={styles.tag} disabled={rsvp} onClick={()=>dispatch({type:"TOGGLE_MODAL",payload:true})}>{rsvp?"Already RSVPed":"RSVP"}</button>
             </main>
         </div>
+        </>
     )
 }
